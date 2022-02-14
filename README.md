@@ -1,4 +1,4 @@
-# Welcome to repositoty - sean725!
+# Welcome to repository - sean725!
 
 This repository is a public repository where I upload executable application files.
 

@@ -2,6 +2,9 @@
 
 This repository is a public repository where I upload executable application files.
 
+Please contact for details.
+*tlsdlfnoff1998@gmail.com*
+
 **About me:**
 
 Resume: *https://www.canva.com/design/DAE2wzqypHY/1ck1QmW04iznVdq7YRJo9A/view?utm_content=DAE2wzqypHY&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton*

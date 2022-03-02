@@ -2,6 +2,10 @@
 
 This repository is a public repository where I upload executable application files.
 
+I'm open to work, remote, on-site, and hybrid!
+
+Currently based in Orlando, FL.
+
 Please contact for details.
 *tlsdlfnoff1998@gmail.com*
 

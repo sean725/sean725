@@ -5,3 +5,5 @@
 3. News and live data is pulled from public APIs.
   - News: livescore.com
   - Live data: API-Football
+
+4. Launching iOS version is postponed.

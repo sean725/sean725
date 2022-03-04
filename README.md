@@ -35,6 +35,7 @@ I have studied the basics of design. It highly improved my sense of design. Bett
 
 The Football Gallery: 01/2022 - 02/2022
 
+- if this project errors out when launching, it's possibly due to disconnection from the API. Big amount of API request or dev's unsubscription can cause the error. Please contact for details.
 - a full-stack individual project
 - Android / iOS / API / Cloud Storage
 - a Reddit-like application with live football data, news and forum feature combined. 

@@ -4,8 +4,19 @@ Project and Portfolio 6 - January 2022
 
 work done by **Sean Shinil Lee**
 
+**[NOTE]**
 
-**[Instructions]**:
+1. This app hasn't released.
+2. If crashes, means database connection to this app is lost.
+3. For details, please contact tlsdlfnoff1998@gmail.com
+
+**[Walkthroughs]**
+
+https://youtu.be/Oqu1gS8efYc
+App Idea: https://www.youtube.com/watch?v=6bEtUWDZ2-U
+
+
+**[Instructions]**
 
 1. download the apk file
 2. open the apk file

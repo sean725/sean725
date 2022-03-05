@@ -6,7 +6,7 @@ I'm open to work, remote, on-site, and hybrid!
 
 Currently based in Orlando, FL.
 
-Please contact for details.
+**Please contact for details or code requests.**
 *tlsdlfnoff1998@gmail.com*
 
 instagram: *tlsdlfnoff_dev*

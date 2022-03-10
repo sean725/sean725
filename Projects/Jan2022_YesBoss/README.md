@@ -1,6 +1,8 @@
 # dvp6-2201-sean725
 
 Project and Portfolio 6 - January 2022
+ 
+Individual Project
 
 work done by **Sean Shinil Lee**
 

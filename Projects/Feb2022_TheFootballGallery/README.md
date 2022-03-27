@@ -11,6 +11,8 @@ Individual Project by Sean Shinil Lee
 
 [Summary]
 
+https://youtu.be/_H6kU_QUaU0 - Presentation
+
 Provides football fans live data such as news, fixtures, and standings. Lets users interact with basic social networking service(SNS) features.
 
 An individual project, built all core components of a news & social network with Java.

@@ -1,0 +1,23 @@
+class Solution {
+    public int findDuplicate(int[] nums) {
+        
+        // constraint: there is only a single duplicate
+        
+        // step 1. sort the array
+        Arrays.sort(nums);
+        
+        // step 2. using a for loop, keep record of value of previous element
+        int prev = -1;
+        
+        for(int x=0; x<nums.length; x++){
+            
+            if(prev == nums[x]){
+                // step 3. if current value is equivalent to the previous, return the value.
+                return nums[x];
+            }else{
+                prev = nums[x];
+            }
+        }
+        return prev; // it doesn't necessarily have to return prev
+    }
+}

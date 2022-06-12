@@ -44,6 +44,19 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
 
+    public static final int LIKE_ON = 1;
+    public static final int LIKE_OFF = 0;
+
+    public int handleLikeBtn(String _id){
+        if(isLiked(_id)){ // has data in the db
+            deleteLike(_id);
+            return LIKE_OFF;
+        }else{
+            createLike(_id);
+            return LIKE_ON;
+        }
+    }
+
     public void createLike(String _id){
         // create new biz id in DB
         ContentValues cv = new ContentValues();
@@ -54,14 +67,17 @@ public class DBManager extends SQLiteOpenHelper {
 
     public void deleteLike(String _id){
         // remove from DB
-        mDB.delete(TABLE_NAME, "_id = ?", new String[]{escapeQuotes(_id)});
+        mDB.delete(TABLE_NAME, "biz_id = ?", new String[]{escapeQuotes(_id)});
     }
 
     public boolean isLiked(String _id){
 
+        Log.i("DB_TAG", "checking if mDB is null: " + mDB.toString());
+        Cursor c = mDB.rawQuery("SELECT * FROM likes WHERE biz_id=?", new String[]{escapeQuotes(_id)});
+
         Cursor cursor = mDB.query(TABLE_NAME, null, COLUMN_BIZ_ID + "=" + escapeQuotes(_id), null,null,null,null);
-        Log.i("TAG", "cursor count: " + cursor);
-        if(cursor.getCount() > 0){ return true; }
+        //if(cursor.getCount() > 0){ return true; }
+        if(c.getCount() > 0){ return true; }
         return false;
     }
 

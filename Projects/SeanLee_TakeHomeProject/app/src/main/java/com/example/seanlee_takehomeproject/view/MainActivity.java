@@ -8,24 +8,18 @@ import android.os.Bundle;
 
 import com.example.seanlee_takehomeproject.R;
 import com.example.seanlee_takehomeproject.adapter.CityAdapter;
-import com.example.seanlee_takehomeproject.model.objects.CityModel;
-import com.example.seanlee_takehomeproject.viewmodel.ReviewsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<CityModel> mCollection;
     private CityAdapter mAdapter;
-    private ReviewsViewModel mViewModel;
 
     // TODO: Questions
     // 1. is it a good practice to perform all screens via fragments? or should I have multiple activities?
     // since Fragment brings you to previous fragment state...
     // all should performed via activities
-
-    // TODO: instruction questions
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

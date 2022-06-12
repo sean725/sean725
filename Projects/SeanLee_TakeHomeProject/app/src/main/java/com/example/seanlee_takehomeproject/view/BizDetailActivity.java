@@ -61,17 +61,22 @@ public class BizDetailActivity extends AppCompatActivity {
         RecyclerView rv_reviews = findViewById(R.id.biz_detail_reviews);
 
         DBManager db = DBManager.getInstance(this);
+        // TODO: is it a bad practice to pass views to DBManager class and handle button background change?
         ib_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(db.isLiked(business.getId())){
-                    db.deleteLike(business.getId());
+                int result = db.handleLikeBtn(business.getId());
+                if(result == DBManager.LIKE_ON){
+                    ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_alt_24); // change resource
                 }else{
-                    db.createLike(business.getId());
+                    ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_off_alt_24); // change resource
                 }
             }
         });
-        if(db.isLiked(business.getId())){
+        boolean isLiked = db.isLiked(business.getId());
+        if(isLiked){
+            ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_alt_24); // change resource
+        }else{
             ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_off_alt_24); // change resource
         }
 

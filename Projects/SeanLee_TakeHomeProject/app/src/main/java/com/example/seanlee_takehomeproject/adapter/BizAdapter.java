@@ -54,6 +54,8 @@ public class BizAdapter extends RecyclerView.Adapter<BizAdapter.VH> {
         DBManager db = DBManager.getInstance(mContext);
         if(db.isLiked(mCollection.get(position).getTitle())){ // liked
             holder.btn_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_alt_24); // change resource
+        }else {
+            holder.btn_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_off_alt_24); // change resource
         }
     }
 
@@ -93,12 +95,11 @@ public class BizAdapter extends RecyclerView.Adapter<BizAdapter.VH> {
                 public void onClick(View view) {
                     // check if it's liked already
                     DBManager db = DBManager.getInstance(mContext);
-                    if(db.isLiked(mBusiness.getTitle())){ // liked
-                        btn_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_off_alt_24); // change resource
-                        db.deleteLike(mBusiness.getId()); // update db
-                    }else{
+                    int result = db.handleLikeBtn(mBusiness.getId());
+                    if(result == DBManager.LIKE_ON){ // change to like
                         btn_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_alt_24); // change resource
-                        db.createLike(mBusiness.getId()); // update db
+                    }else{
+                        btn_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_off_alt_24); // change resource
                     }
                 }
             });

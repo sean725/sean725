@@ -18,6 +18,7 @@ import com.example.seanlee_takehomeproject.R;
 import com.example.seanlee_takehomeproject.adapter.BizAdapter;
 import com.example.seanlee_takehomeproject.model.objects.BusinessModel;
 import com.example.seanlee_takehomeproject.model.objects.BusinessesModel;
+import com.example.seanlee_takehomeproject.util.DividerDecoration;
 import com.example.seanlee_takehomeproject.viewmodel.BusinessesViewModel;
 
 import java.util.List;
@@ -41,6 +42,7 @@ public class BizActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
         RecyclerView rv = findViewById(R.id.biz_recyclerView);
         rv.setLayoutManager(layoutManager);
+        rv.addItemDecoration(new DividerDecoration(this));
         mAdapter = new BizAdapter(this, mCollection, cityName);
         rv.setAdapter(mAdapter);
 

@@ -47,7 +47,6 @@ public class BizAdapter extends RecyclerView.Adapter<BizAdapter.VH> {
     @Override
     public void onBindViewHolder(@NonNull BizAdapter.VH holder, int position) {
         holder.tv_name.setText(mCollection.get(position).getTitle());
-
         holder.mBusiness = mCollection.get(position);
 
         // check if the business is liked already

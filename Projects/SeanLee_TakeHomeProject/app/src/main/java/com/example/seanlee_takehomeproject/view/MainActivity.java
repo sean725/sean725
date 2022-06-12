@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.seanlee_takehomeproject.R;
 import com.example.seanlee_takehomeproject.adapter.CityAdapter;
+import com.example.seanlee_takehomeproject.util.DividerDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
         RecyclerView rv = findViewById(R.id.city_recyclerView);
         rv.setLayoutManager(layoutManager);
+        rv.addItemDecoration(new DividerDecoration(this));
         mAdapter = new CityAdapter(this, cities);
         rv.setAdapter(mAdapter);
     }

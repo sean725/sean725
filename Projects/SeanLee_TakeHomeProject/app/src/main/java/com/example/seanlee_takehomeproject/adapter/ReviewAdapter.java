@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seanlee_takehomeproject.R;
 import com.example.seanlee_takehomeproject.model.objects.ReviewModel;
+import com.example.seanlee_takehomeproject.util.StringUtil;
 
 import org.w3c.dom.Text;
 
@@ -44,7 +45,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.VH> {
     public void onBindViewHolder(@NonNull ReviewAdapter.VH holder, int position) {
         holder.tv_author.setText(mCollection.get(position).getAuthor());
         holder.tv_rating.setText(String.valueOf(mCollection.get(position).getRating()));
-        holder.tv_date.setText(mCollection.get(position).getDate());
+        holder.tv_date.setText(StringUtil.calculateTimeDiff(mCollection.get(position).getDate()));
         holder.ratingBar.setRating(mCollection.get(position).getRating());
         holder.tv_content.setText(mCollection.get(position).getContent());
     }

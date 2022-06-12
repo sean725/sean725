@@ -25,6 +25,7 @@ import com.example.seanlee_takehomeproject.model.objects.NewBiz;
 import com.example.seanlee_takehomeproject.model.objects.ReviewModel;
 import com.example.seanlee_takehomeproject.model.objects.ReviewsModel;
 import com.example.seanlee_takehomeproject.util.DBManager;
+import com.example.seanlee_takehomeproject.util.DividerDecoration;
 import com.example.seanlee_takehomeproject.viewmodel.ReviewsViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -89,6 +90,7 @@ public class BizDetailActivity extends AppCompatActivity {
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
         rv_reviews.setLayoutManager(layoutManager);
+        rv_reviews.addItemDecoration(new DividerDecoration(this));
         mAdapter = new ReviewAdapter(this, mCollection); // get reviews from api then populate
         rv_reviews.setAdapter(mAdapter);
 

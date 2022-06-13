@@ -50,6 +50,7 @@ public class BizDetailActivity extends AppCompatActivity {
 
         setTitle(business.getTitle());
 
+        // TODO: should I move UI portion to a separate function?
         TextView tv_name = findViewById(R.id.biz_detail_title);
         ImageButton ib_like = findViewById(R.id.biz_detail_btn_like);
         ImageView iv_thumbnail = findViewById(R.id.biz_detail_thumbnail);

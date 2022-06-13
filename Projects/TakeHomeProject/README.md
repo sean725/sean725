@@ -13,7 +13,7 @@
 
 **Instructions:**
 
-*To open the app, either download the project file and open the entire folder(SeanLee_TakeHomeProject) with Android studio or download the .apk file and open in an Android Emulator or a physical Android device.*
+*To open the app, either download the project file and open the entire folder(SeanLee_TakeHomeProject) with Android studio or download the .apk file(yelp_clone.apk) and open in an Android Emulator or a physical Android device.*
 
 ***https://github.com/sean725/sean725/tree/master/Projects/TakeHomeProject***
 

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.seanlee_takehomeproject.model.api.APIService;
 import com.example.seanlee_takehomeproject.model.api.RetroInstance;
-import com.example.seanlee_takehomeproject.model.objects.CityModel;
 import com.example.seanlee_takehomeproject.model.objects.ReviewsModel;
 
 import java.util.List;

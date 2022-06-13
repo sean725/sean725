@@ -65,20 +65,14 @@ public class DBManager extends SQLiteOpenHelper {
         mDB.insert(TABLE_NAME, null, cv);
     }
 
+    // remove like from DB
     public void deleteLike(String _id){
-        // remove from DB
         mDB.delete(TABLE_NAME, "biz_id = ?", new String[]{escapeQuotes(_id)});
     }
 
     public boolean isLiked(String _id){
-
-        Log.i("DB_TAG", "checking if mDB is null: " + mDB.toString());
         Cursor c = mDB.rawQuery("SELECT * FROM likes WHERE biz_id=?", new String[]{escapeQuotes(_id)});
-
-        Cursor cursor = mDB.query(TABLE_NAME, null, COLUMN_BIZ_ID + "=" + escapeQuotes(_id), null,null,null,null);
-        //if(cursor.getCount() > 0){ return true; }
-        if(c.getCount() > 0){ return true; }
-        return false;
+        return c.getCount() > 0;
     }
 
     private String escapeQuotes(String _id){

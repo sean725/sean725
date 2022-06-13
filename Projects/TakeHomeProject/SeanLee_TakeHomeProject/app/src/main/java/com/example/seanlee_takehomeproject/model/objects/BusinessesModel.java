@@ -8,16 +8,9 @@ public class BusinessesModel {
 
     @SerializedName("businesses") private List<BusinessModel> businesses;
 
-    public BusinessesModel(List<BusinessModel> businesses) {
-        this.businesses = businesses;
-    }
-
     public List<BusinessModel> getBusinesses() {
         return businesses;
     }
 
-    public void setBusinesses(List<BusinessModel> businesses) {
-        this.businesses = businesses;
-    }
 }
 

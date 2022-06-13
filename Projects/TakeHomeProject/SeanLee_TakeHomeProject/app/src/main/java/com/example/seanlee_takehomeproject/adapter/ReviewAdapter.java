@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -15,13 +14,11 @@ import com.example.seanlee_takehomeproject.R;
 import com.example.seanlee_takehomeproject.model.objects.ReviewModel;
 import com.example.seanlee_takehomeproject.util.StringUtil;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.VH> {
 
-    Context mContext;
+    final Context mContext;
     private List<ReviewModel> mCollection;
 
     public ReviewAdapter(Context _context, List<ReviewModel> _reviews) {
@@ -31,7 +28,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.VH> {
 
     public void setCollection(List<ReviewModel> _reviews){
         this.mCollection = _reviews;
-        notifyDataSetChanged();;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -56,12 +53,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.VH> {
         return 0;
     }
 
-    public class VH extends RecyclerView.ViewHolder{
-        TextView tv_author;
-        TextView tv_date;
-        TextView tv_rating;
-        RatingBar ratingBar;
-        TextView tv_content;
+    public static class VH extends RecyclerView.ViewHolder{
+        final TextView tv_author;
+        final TextView tv_date;
+        final TextView tv_rating;
+        final RatingBar ratingBar;
+        final TextView tv_content;
 
         public VH(View itemView) {
             super(itemView);

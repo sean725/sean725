@@ -19,17 +19,12 @@ import java.util.List;
 public class CityAdapter extends RecyclerView.Adapter<CityAdapter.VH> {
 
     public static final String TAG = "CityAdapter.TAG";
-    private Context mContext;
-    private List<String> mCollection;
+    private final Context mContext;
+    private final List<String> mCollection;
 
     public CityAdapter(Context _context, List<String> _collection) {
         this.mContext = _context;
         this.mCollection = _collection;
-    }
-
-    public void setCollection(List<String> _collection){
-        this.mCollection = _collection;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -54,23 +49,20 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.VH> {
 
     public class VH extends RecyclerView.ViewHolder{
 
-        TextView tv_name;
+        final TextView tv_name;
         int position;
 
         public VH(View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.row_city_name);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // start biz activity with id
-                    // maybe use interface? or just open activity here?
-                    Intent intent = new Intent(itemView.getContext(), BizActivity.class);
-                    intent.putExtra(Intent.EXTRA_TEXT, mCollection.get(position));
-                    Log.i(TAG, "onCityClick: " + mCollection.get(position));
-                    itemView.getContext().startActivity(intent);
-                }
+            itemView.setOnClickListener(view -> {
+                // start biz activity with id
+                // maybe use interface? or just open activity here?
+                Intent intent = new Intent(itemView.getContext(), BizActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, mCollection.get(position));
+                Log.i(TAG, "onCityClick: " + mCollection.get(position));
+                itemView.getContext().startActivity(intent);
             });
         }
     }

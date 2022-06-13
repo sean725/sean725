@@ -2,8 +2,6 @@ package com.example.seanlee_takehomeproject.view;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Adapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -13,19 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seanlee_takehomeproject.R;
 import com.example.seanlee_takehomeproject.adapter.ReviewAdapter;
-import com.example.seanlee_takehomeproject.model.objects.BusinessModel;
 import com.example.seanlee_takehomeproject.model.objects.NewBiz;
 import com.example.seanlee_takehomeproject.model.objects.ReviewModel;
-import com.example.seanlee_takehomeproject.model.objects.ReviewsModel;
 import com.example.seanlee_takehomeproject.util.DBManager;
 import com.example.seanlee_takehomeproject.util.DividerDecoration;
+import com.example.seanlee_takehomeproject.util.StringUtil;
 import com.example.seanlee_takehomeproject.viewmodel.ReviewsViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -52,6 +48,8 @@ public class BizDetailActivity extends AppCompatActivity {
 
         NewBiz business = (NewBiz) getIntent().getSerializableExtra("EXTRA_BIZ");
 
+        setTitle(business.getTitle());
+
         TextView tv_name = findViewById(R.id.biz_detail_title);
         ImageButton ib_like = findViewById(R.id.biz_detail_btn_like);
         ImageView iv_thumbnail = findViewById(R.id.biz_detail_thumbnail);
@@ -63,18 +61,21 @@ public class BizDetailActivity extends AppCompatActivity {
 
         DBManager db = DBManager.getInstance(this);
         // TODO: is it a bad practice to pass views to DBManager class and handle button background change?
-        ib_like.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int result = db.handleLikeBtn(business.getId());
-                if(result == DBManager.LIKE_ON){
-                    ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_alt_24); // change resource
-                }else{
-                    ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_off_alt_24); // change resource
-                }
+
+        // handle like button
+        ib_like.setOnClickListener(view -> {
+            int result = db.handleLikeBtn(business.getId());
+            if(result == DBManager.LIKE_ON){
+                ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_alt_24); // change resource
+                StringUtil.displayToast(getApplicationContext(), business.getTitle(), StringUtil.MSG_LIKE);
+            }else{
+                ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_off_alt_24); // change resource
+                StringUtil.displayToast(getApplicationContext(), business.getTitle(), StringUtil.MSG_UNLIKE);
             }
         });
         boolean isLiked = db.isLiked(business.getId());
+
+        // change button background
         if(isLiked){
             ib_like.setBackgroundResource(R.drawable.ic_baseline_thumb_up_alt_24); // change resource
         }else{
@@ -95,13 +96,10 @@ public class BizDetailActivity extends AppCompatActivity {
         rv_reviews.setAdapter(mAdapter);
 
         ReviewsViewModel viewModel = new ViewModelProvider(this).get(ReviewsViewModel.class);
-        viewModel.getReviewsObserver().observe(this, new Observer<ReviewsModel>() {
-            @Override
-            public void onChanged(ReviewsModel reviewsModel) {
-                if(reviewsModel != null){
-                    mCollection = reviewsModel.getReviews();
-                    mAdapter.setCollection(reviewsModel.getReviews());
-                }
+        viewModel.getReviewsObserver().observe(this, reviewsModel -> {
+            if(reviewsModel != null){
+                mCollection = reviewsModel.getReviews();
+                mAdapter.setCollection(reviewsModel.getReviews());
             }
         });
         viewModel.callApi(business.getId());

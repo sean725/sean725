@@ -5,8 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroInstance {
 
-    public static String BASE_URL = "https://api.yelp.com/v3/";
-    public static String API_KEY = "dj_FOzmZCkNvIGoTBgCH4h__OTwl5tND4-Bgyu9ow3vnrcQNWA4UwklUCcG82wbJkrxToFf8d-8MZSosRsoJmrjAgb6ZBJr0SrtZqL360d4gv7CIbpBt-NvUmu6jYnYx";
+    public static final String BASE_URL = "https://api.yelp.com/v3/";
+    // TODO: should this be a private variable?
+    public static final String API_KEY = "dj_FOzmZCkNvIGoTBgCH4h__OTwl5tND4-Bgyu9ow3vnrcQNWA4UwklUCcG82wbJkrxToFf8d-8MZSosRsoJmrjAgb6ZBJr0SrtZqL360d4gv7CIbpBt-NvUmu6jYnYx";
 
     private static Retrofit mRetrofit;
 

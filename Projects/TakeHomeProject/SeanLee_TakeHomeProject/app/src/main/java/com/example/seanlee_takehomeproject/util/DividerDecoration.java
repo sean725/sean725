@@ -15,7 +15,7 @@ import com.example.seanlee_takehomeproject.R;
 
 public class DividerDecoration extends RecyclerView.ItemDecoration {
 
-    private Drawable mDivider;
+    private final Drawable mDivider;
 
     public DividerDecoration(Context _context) {
         mDivider = ContextCompat.getDrawable(_context, R.drawable.divider);

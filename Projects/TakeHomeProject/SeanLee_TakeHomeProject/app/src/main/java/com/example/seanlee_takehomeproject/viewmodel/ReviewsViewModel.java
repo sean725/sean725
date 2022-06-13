@@ -7,15 +7,13 @@ import com.example.seanlee_takehomeproject.model.api.APIService;
 import com.example.seanlee_takehomeproject.model.api.RetroInstance;
 import com.example.seanlee_takehomeproject.model.objects.ReviewsModel;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ReviewsViewModel extends ViewModel {
 
-    private MutableLiveData<ReviewsModel> mCollection;
+    private final MutableLiveData<ReviewsModel> mCollection;
     public ReviewsViewModel() { mCollection = new MutableLiveData<>(); }
     public MutableLiveData<ReviewsModel> getReviewsObserver(){ return mCollection; }
 

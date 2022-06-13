@@ -13,7 +13,7 @@ import retrofit2.Response;
 
 public class BusinessesViewModel extends ViewModel {
 
-    private MutableLiveData<BusinessesModel> mCollection;
+    private final MutableLiveData<BusinessesModel> mCollection;
     public BusinessesViewModel() { mCollection = new MutableLiveData<>(); }
     public MutableLiveData<BusinessesModel> getBusinessesObserver(){ return mCollection; }
 

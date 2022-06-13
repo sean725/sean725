@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReviewModel {
 
-    @SerializedName("user") private UserModel user;
-    @SerializedName("time_created") private String date;
-    @SerializedName("rating") private float rating;
-    @SerializedName("text") private String content;
+    @SerializedName("user") private final UserModel user;
+    @SerializedName("time_created") private final String date;
+    @SerializedName("rating") private final float rating;
+    @SerializedName("text") private final String content;
 
     public ReviewModel(UserModel user, String date, float rating, String content) {
         this.user = user;

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ReviewsModel {
 
-    @SerializedName("reviews") private List<ReviewModel> reviews;
+    @SerializedName("reviews") private final List<ReviewModel> reviews;
 
     public ReviewsModel(List<ReviewModel> reviews) {
         this.reviews = reviews;

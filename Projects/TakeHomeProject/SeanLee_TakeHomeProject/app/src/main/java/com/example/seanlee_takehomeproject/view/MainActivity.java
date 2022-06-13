@@ -15,8 +15,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CityAdapter mAdapter;
-
     // TODO: Questions
     // 1. is it a good practice to perform all screens via fragments? or should I have multiple activities?
     // since Fragment brings you to previous fragment state...
@@ -26,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Jefit X Sean: Yelp Clone!");
 
+        // populate cities collection
         List<String> cities = new ArrayList<>();
         cities.add("San Francisco"); cities.add("New York"); cities.add("Seattle"); cities.add("San Jose"); cities.add("Chicago");
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.city_recyclerView);
         rv.setLayoutManager(layoutManager);
         rv.addItemDecoration(new DividerDecoration(this));
-        mAdapter = new CityAdapter(this, cities);
-        rv.setAdapter(mAdapter);
+        CityAdapter adapter = new CityAdapter(this, cities);
+        rv.setAdapter(adapter);
     }
 }

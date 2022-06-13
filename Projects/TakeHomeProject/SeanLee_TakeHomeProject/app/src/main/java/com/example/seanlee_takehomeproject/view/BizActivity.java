@@ -43,22 +43,23 @@ public class BizActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.biz_recyclerView);
         rv.setLayoutManager(layoutManager);
         rv.addItemDecoration(new DividerDecoration(this));
-        mAdapter = new BizAdapter(this, mCollection, cityName);
+        mAdapter = new BizAdapter(this, mCollection);
         rv.setAdapter(mAdapter);
 
-        //BusinessesViewModel businessesVM = ViewModelProviders.of(this).get(BusinessesViewModel.class);
         BusinessesViewModel businessesVM = new ViewModelProvider(this).get(BusinessesViewModel.class);
-        businessesVM.getBusinessesObserver().observe(this, new Observer<BusinessesModel>() {
-            @Override
-            public void onChanged(BusinessesModel businessesModel) {
-                if(businessesModel != null){
-                    mCollection = businessesModel.getBusinesses();
-                    mAdapter.setCollection(businessesModel.getBusinesses());
-                }
+        businessesVM.getBusinessesObserver().observe(this, businessesModel -> {
+            if(businessesModel != null){
+                mCollection = businessesModel.getBusinesses();
+                mAdapter.setCollection(businessesModel.getBusinesses());
             }
         });
         businessesVM.callApi(cityName);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override

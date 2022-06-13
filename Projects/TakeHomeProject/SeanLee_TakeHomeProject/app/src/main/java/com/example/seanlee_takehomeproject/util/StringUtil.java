@@ -1,6 +1,8 @@
 package com.example.seanlee_takehomeproject.util;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,6 +10,18 @@ import java.util.Date;
 
 public class StringUtil {
 
+    public static final String MSG_LIKE = "Liked ";
+    public static final String MSG_UNLIKE = "Unliked ";
+    private static Toast mToast;
+
+    // display pop-up toast
+    public static void displayToast(Context _context, String _businessName, String _text){
+        if(mToast != null){ mToast.cancel(); }
+        mToast = Toast.makeText(_context, _text + _businessName, Toast.LENGTH_SHORT);
+        mToast.show();
+    }
+
+    // converts year-month-day to time difference
     public static String calculateTimeDiff(String _date){
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -60,6 +74,6 @@ public class StringUtil {
         }
 
         if(value == 0) return unit;
-        else return String.valueOf(value) + unit;
+        else return value + unit;
     }
 }

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserModel {
 
-    @SerializedName("name") private String author;
+    @SerializedName("name") private final String author;
 
     public UserModel(String author) {
         this.author = author;

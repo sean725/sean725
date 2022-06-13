@@ -13,7 +13,9 @@
 
 **Instructions:**
 
-*To open the app, either download the project file and open with Android studio or download the .apk file and open in an Android Emulator or a physical Android device.*
+*To open the app, either download the project file and open the entire folder(SeanLee_TakeHomeProject) with Android studio or download the .apk file and open in an Android Emulator or a physical Android device.*
+
+***https://github.com/sean725/sean725/tree/master/Projects/TakeHomeProject***
 
 **Features:**
 
@@ -40,9 +42,9 @@ The detail consists of as follows.*
 
 *App type: Android Mobile Application*
 
-*-IDE: Android Studio*
+*- IDE: Android Studio*
 
-*-Language: Java*
+*- Language: Java*
 
 *- API: Yelp Public API*
 
@@ -59,7 +61,10 @@ The detail consists of as follows.*
 
 **Known errors and bugs:**
 
-*1. BusinessesActivity(2nd screen): Like button does not indicate the proper like value.*
+*None*
 
-*2. BusinessesActivity(2nd Screen): When the recyclerView is reloaded, saved value of the like button is refreshed. -> assuming there are some logic errors while implementing SQLiteOpenHelper*
+~~*1. BusinessesActivity(2nd screen): Like button does not indicate the proper like value.*~~
+***Fixed on Jun 12, 2022***
+
+~~*2. BusinessesActivity(2nd Screen): When the recyclerView is reloaded, saved value of the like button is refreshed. -> assuming there are some logic errors while implementing SQLiteOpenHelper*~~ ***Fixed on Jun 12, 2022***
 

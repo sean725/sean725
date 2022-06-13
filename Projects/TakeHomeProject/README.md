@@ -3,7 +3,7 @@
 
 **Overview:**
 
-*This project is a Android mobile application, with the purpose of displaying data retrieved from the Yelp API. You can choose a city to explore the businesses in the area and the detail of the business.*
+*This project is an Android mobile application, with the purpose of displaying data retrieved from the Yelp API. You can choose a city to explore the businesses in the area and the detail of the business.*
 
 **Requirements:**
 
